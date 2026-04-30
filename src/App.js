@@ -1,15 +1,15 @@
-import React from 'react';
-import Header from './Header.js'
-import Home from './Home.js'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './Header';
+import Home from './Home';
 
 function App() {
   return (
-    <div className="App">
-      {/* top */}
-      <Header></Header>
-      {/* body */}
-      <Home></Home>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
