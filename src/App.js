@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
 import Header from './Header.js'
+import Home from './Home.js'
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       {/* top */}
       <Header></Header>
       {/* body */}
+      <Home></Home>
     </div>
   );
 }
