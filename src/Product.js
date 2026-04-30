@@ -37,7 +37,7 @@ function Product({ id, title, image, price, rating }) {
       <img src={image} className="w-full object-contain mb-4" style={{ maxHeight: '300px' }} />
 
       <button onClick={addToBasket} className="bg-[#f0c14b] text-gray-900 border border-[#a88734] mt-3 w-full py-1" style={{maxWidth: '250px'}}>
-        Add to Basket
+        Add to Cart
       </button>
     </div>
   );
