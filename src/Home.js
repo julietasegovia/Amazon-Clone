@@ -3,15 +3,17 @@ import Product from './Product.js'
 
 function Home() {
   return (
-    <div>
-      <div className='flex items-center place-content-center'>
-         <img
-            src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
-            className="w-full"
-            style={{ maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))' }}
-            />
-        </div>
-        <div className="home__row">
+    <div className='bg-gray-200'>
+      <div className='flex items-center place-content-center relative'>
+        <img
+          src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
+          className="w-full"
+          style={{ maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))' }}
+        />
+      </div>
+
+      <div className='mb-20 relative z-10 -mt-96'>
+        <div className="flex flex-wrap justify-center gap-4 p-4">
           <Product
             id="12321341"
             title="The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback"
@@ -26,9 +28,6 @@ function Home() {
             rating={4}
             image="https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg"
           />
-        </div>
-
-        <div className="home__row">
           <Product
             id="4903850"
             title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor"
@@ -50,9 +49,6 @@ function Home() {
             rating={4}
             image="https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg"
           />
-        </div>
-
-        <div className="home__row">
           <Product
             id="90829332"
             title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440"
@@ -61,6 +57,7 @@ function Home() {
             image="https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg"
           />
         </div>
+      </div>
     </div>
   );
 }

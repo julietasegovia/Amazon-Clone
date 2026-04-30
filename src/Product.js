@@ -2,10 +2,10 @@ import React from 'react'
 
 function Product({ id, title, image, price, rating }) {
   return (
-    <div className="flex flex-col items-center justify-end w-full bg-white z-10">
-      <div className="h-12">
+    <div className="z-100 flex flex-col items-center justify-between bg-white z-10 p-5" style={{ width: '600px' }}>
+      <div className="w-full">
         <p>{title}</p>
-        <p className="product__price">
+        <p className="mt-1">
           <small>$</small>
           <strong>{price}</strong>
         </p>
@@ -13,14 +13,16 @@ function Product({ id, title, image, price, rating }) {
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <p>🌟</p>
+              <p key={i}>★</p>
             ))}
         </div>
       </div>
 
-      <img src={image} className='w-full object-contain'/>
+      <img src={image} className="w-full object-contain mb-4" style={{ maxHeight: '300px' }} />
 
-      <button className='bg-yellow-300 text-gray-900'>Add to Basket</button>
+      <button className="bg-[#f0c14b] text-gray-900 border border-[#a88734] mt-3 w-full py-1" style={{maxWidth: '250px'}}>
+        Add to Basket
+      </button>
     </div>
   );
 }
