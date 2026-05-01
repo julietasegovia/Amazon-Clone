@@ -12,7 +12,7 @@ function Home() {
         />
       </div>
 
-      <div className='mb-20 relative z-10 -mt-96'>
+      <div className='pb-20 relative z-10 -mt-96'>
         <div className="flex flex-wrap justify-center gap-4 p-4">
           <Product
             id="12321341"
