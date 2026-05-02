@@ -1,31 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import loupe from './assets/loupe.png';
 import cart from './assets/cart.png';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useStateValue } from './StateProvider';
 import { supabase } from './supabase';
 
 function Header() {
   const [{ basket }, dispatch] = useStateValue();
   const [user, setUser] = useState(null);
+  const [query, setQuery] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Get current session on load
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
     });
-
-    // Listen for login/logout changes
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
     });
-
     return () => listener.subscription.unsubscribe();
   }, []);
 
   const handleAuth = async () => {
-    if (user) {
-      await supabase.auth.signOut();
+    if (user) await supabase.auth.signOut();
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (query.trim()) {
+      navigate(`/search?q=${encodeURIComponent(query.trim())}`);
     }
   };
 
@@ -34,12 +37,21 @@ function Header() {
       <Link to="/">
         <img src="https://www.pngmart.com/files/23/Amazon-Logo-White-PNG-Image.png" className='mt-2 h-10 cursor-pointer' />
       </Link>
-      <div className='w-3/5 flex items-center place-content-center'>
-        <input type="text" className='pl-3 h-10 w-full rounded-l-md' placeholder="Search on Amazon" />
-        <div className='hover:bg-orange-400 rounded-r-md bg-orange-300 w-10 h-10 flex place-content-around cursor-pointer items-center'>
+      <form onSubmit={handleSearch} className='w-3/5 flex items-center'>
+        <input
+          type="text"
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+          className='pl-3 h-10 w-full rounded-l-md outline-none'
+          placeholder="Search on Amazon"
+        />
+        <button
+          type="submit"
+          className='hover:bg-orange-400 rounded-r-md bg-orange-300 w-10 h-10 flex place-content-around cursor-pointer items-center'
+        >
           <img src={loupe} className='w-7 h-7' />
-        </div>
-      </div>
+        </button>
+      </form>
       <div className='flex gap-10'>
         <Link to={!user ? '/login' : '/'} onClick={handleAuth}>
           <div className='flex flex-col justify-center cursor-pointer'>
@@ -63,7 +75,7 @@ function Header() {
         </Link>
       </div>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;

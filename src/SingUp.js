@@ -96,7 +96,7 @@ function SingUp() {
                 </p>
                 <p className='mt-4 text-sm'>
                     Already have an account?{' '}
-                    <Link to='/login' className='text-blue-600 hover:underline'>Sign in</Link>
+                    <Link to='/login' className='text-orange-500 hover:underline'>Sign in</Link>
                 </p>
             </div>
     </div>

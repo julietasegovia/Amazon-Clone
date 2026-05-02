@@ -66,7 +66,7 @@ function Login() {
                 </p>
                 <p className='mt-4 text-sm'>
                     New to Juli's Fake Amazon?{' '}
-                    <Link to='/signup' className='text-blue-600 hover:underline'>Create an account</Link>
+                    <Link to='/signup' className='text-orange-500 hover:underline'>Create an account</Link>
                 </p>
             </div>
         </div>
