@@ -4,3 +4,9 @@ A functional copy of the Amazon website, with a functional shopping cart, a sear
 After doing the Spotify Clone (https://github.com/julietasegovia/Spotify-Clone) I wanted to create something similar with a more complex backend. I landed on Amazon because it has a very simple aesthetic and easy to replicate front-end, and with a log in system and a shopping cart, this was a pretty decent back-end challenge.
 ### How did I do this?
 Just like in my previous clone, I used React + Vite and Tailwind for dynamic styling. For the first time, I used Supabase for my database, which I'll use for my Login/Singup. I also used claude to help me debug. I deployed on GitHub Pages.
+### Run locally
+You'll need node.js to run this locally, just clone the repository and run it with npm:
+git clone https://github.com/julietasegovia/Amazon-Clone
+cd Amazon-Clone
+npm install (if you don't have it)
+npm run dev (it should run at Vite's default port: http://localhost:5173)
